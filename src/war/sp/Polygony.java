@@ -7,7 +7,7 @@ public class Polygony extends Path2D.Double{
 	int id = 0;
 	int sequence = 0;
 	public Polygony(int id, int sequence, ArrayList<Pointy> externalPath, ArrayList<Pointy> internalPath){
-		super();
+		super(WIND_EVEN_ODD);
 		this.id = id;
 		this.sequence = sequence;
 		if(externalPath!=null)

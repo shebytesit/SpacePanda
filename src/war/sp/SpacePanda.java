@@ -41,7 +41,7 @@ public class SpacePanda {
 			Pointy currentPointy = pointyList.get(i);
 			for(int j = 0;j < polygonyList.size();j++){
 				Polygony currentPolygony = polygonyList.get(j);
-				if(currentPolygony.contains(currentPointy.getX(),currentPointy.getY())){
+				if(currentPolygony.contains(currentPointy)){
 					System.out.println(currentPointy.getID()+":"+currentPointy.getSeq()+":"+currentPolygony.getID()+":"+currentPolygony.getSeq());
 				}
 			}
