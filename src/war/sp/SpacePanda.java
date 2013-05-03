@@ -21,7 +21,7 @@ import java.util.Scanner;
 public class SpacePanda {	
 
 	public static void main(String[] args){
-		final long startTime = System.currentTimeMillis();
+		//final long startTime = System.currentTimeMillis();
 		String mode = new String();
 		String nUnits = new String();
 		String inputFilePoints = new String();
@@ -76,9 +76,9 @@ public class SpacePanda {
 		inputPointsS.close();
 		inputPolyS.close();
 		
-		final long endTime = System.currentTimeMillis();
+		//final long endTime = System.currentTimeMillis();
 
-		System.out.println("Total execution time: " + (endTime - startTime) );
+		//System.out.println("Total execution time: " + (endTime - startTime) );
 	}
 
 	private static ArrayList<String> testWithin(ArrayList<Pointy> pointyList,ArrayList<Polygony> polygonyList, int distinctPointyCount,int distinctPolygonyCount,int nUnits) {
