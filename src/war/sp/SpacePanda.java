@@ -5,8 +5,11 @@
 
 package war.sp;
 
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -43,18 +46,26 @@ public class SpacePanda {
 			polygonyList.add(tempPolygon);
 		}
 		Results = testInside(pointyList,polygonyList,distinctPointyCount,distinctPolygonyCount);
-		printResults(Results);
+		printResults(Results,args[2]);
+		inputPointsS.close();
+		inputPolyS.close();
 	}
 
-	private static void printResults(ArrayList<String> results) {
-		Collections.sort(results,new SortResults());
-		String current = "";
-		for(int i = 0;i < results.size();i++){
-			if(current.isEmpty()){
-				System.out.println(results.get(i));
-			}else if(!current.equals(results.get(i)))
-				System.out.println(results.get(i));
-			current = results.get(i);
+	private static void printResults(ArrayList<String> results,String outputFile) {
+		try {
+			BufferedWriter out = new BufferedWriter(new FileWriter(outputFile));
+			Collections.sort(results,new SortResults());
+			String current = "";
+			for(int i = 0;i < results.size();i++){
+				if(current.isEmpty()){
+					out.write(results.get(i));
+				}else if(!current.equals(results.get(i)))
+					out.write("\n"+results.get(i));
+				current = results.get(i);
+			}
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
